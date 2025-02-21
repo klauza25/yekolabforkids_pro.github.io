@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoursForKids - Accueil</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    /* Styles personnalisés */
+    .hero {
+      background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .features .icon {
+      font-size: 3rem;
+      color: #007bff;
+    }
+    .cta-section {
+      background-color: #f8f9fa;
+      padding: 50px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+ <style>
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .banner {
+      background-image: url('https://via.placeholder.com/1920x300/007bff/ffffff?text=Yekolab');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Barre de navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-2xl">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CoursForKids</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+         <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="cours.html">Cours</a></li>
+          <li class="nav-item"><a class="nav-link" href="dash.html">Tableau de bord</a></li>
+          <li class="nav-item"><a class="nav-link" href="login">Déconnexion</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner">
+    <h1>Bienvenue sur CoursForKids</h1>
+  </div>
+
+
+  <!-- Section Hero -->
+  <div class="hero">
+    <h1>Bienvenue sur CoursForKids</h1>
+    <p>Apprenez la robotique et la programmation de manière ludique et progressive.</p>
+    <a href="#" class="btn btn-primary btn-lg">Commencer maintenant</a>
+  </div>
+
+  <!-- Section Fonctionnalités -->
+  <div class="container my-5">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="features">
+          <div class="icon mb-3">🤖</div>
+          <h5>Robotique</h5>
+          <p>Assemblez des robots fonctionnels avec des capteurs et moteurs.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="features">
+          <div class="icon mb-3">💻</div>
+          <h5>Programmation</h5>
+          <p>Programmez vos robots avec Scratch et la carte Studuino.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="features">
+          <div class="icon mb-3">🧩</div>
+          <h5>Puzzle Logique</h5>
+          <p>Apprenez à résoudre des défis d'équilibre avec des LEGO.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Appel à l'action -->
+  <div class="cta-section">
+    <h2>Prêt à commencer ?</h2>
+    <p>Inscrivez-vous dès aujourd'hui et découvrez un monde passionnant de robotique et de programmation.</p>
+    <a href="#" class="btn btn-success btn-lg">S'inscrire</a>
+    <a href="#" class="btn btn-outline-primary btn-lg">En savoir plus</a>
+  </div>
+
+  <!-- Pied de page -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 CoursForKids. Tous droits réservés.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
