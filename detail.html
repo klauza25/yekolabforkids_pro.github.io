@@ -3,29 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Détail du Cours</title>
+  <title>Détail du Cours - CoursForKids</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <style>
+  <link rel="stylesheet" href="bootstrap.min.css">
+ <style>
     body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      display: flex;
     }
 
-    .course-detail-container {
-      max-width: 900px;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #007bff;
+      color: white;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: -250px; /* Masqué par défaut */
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+      padding: 15px;
     }
 
+    .sidebar h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Bouton pour ouvrir/fermer la sidebar */
+    .toggle-sidebar-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 1100;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .toggle-sidebar-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Contenu principal */
+    .content {
+      padding: 20px;
+      margin-left: 0;
+      width: 100%;
+      transition: margin-right 0.3s ease-in-out;
+    }
+
+    .content.sidebar-active {
+      margin-right: 250px; /* Ajuste le contenu pour donner de la place à la sidebar */
+    }
+
+    /* Section des détails du cours */
     .course-title {
       font-size: 2.5rem;
       font-weight: bold;
       color: #007bff;
       margin-bottom: 20px;
-      text-align: center;
     }
 
     .course-description {
@@ -35,88 +93,162 @@
       text-align: justify;
     }
 
-    .illustrative-images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
+    .notions-section {
       margin-bottom: 30px;
     }
 
-    .illustrative-images img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .content-section {
-      margin-top: 30px;
-    }
-
-    .content-section h3 {
+    .notions-section h3 {
       font-size: 1.8rem;
       color: #343a40;
       margin-bottom: 15px;
     }
 
-    .file-link {
-      display: block;
-      margin-bottom: 10px;
+    .notions-section ul {
+      list-style: none;
+      margin-left: 20px;
+    }
+
+    .illustrations {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .illustrations img {
+      width: 100%;
+      max-width: 60%;
+      margin: auto 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+
+    .section img {
+      width: 45%; /* L'image occupe 45% de la largeur */
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .section .text {
+      width: 50%; /* Le texte occupe 50% de la largeur */
+      text-align: justify;
+    }
+
+    .section .text h3 {
+      font-size: 1.8rem;
       color: #007bff;
-      text-decoration: none;
+      margin-bottom: 15px;
     }
 
-    .file-link:hover {
-      text-decoration: underline;
+    .section .text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
     }
 
-    .back-button {
-      margin-top: 20px;
-      display: block;
-      text-align: center;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column; /* Empile l'image et le texte sur petits écrans */
+        text-align: center;
+      }
+
+      .section img, .section .text {
+        width: 100%; /* Les deux prennent toute la largeur */
+      }
     }
+
+    .prof{
+      width:50px ;
+      height: 50px;
+
+    }
+    
   </style>
 </head>
 <body>
-  <div class="course-detail-container">
-    <!-- Titre du cours -->
-    <h1 class="course-title">Programmation - Niveau Collège</h1>
+  <!-- Bouton pour ouvrir/fermer la sidebar -->
+  <button class="toggle-sidebar-btn" id="toggle-sidebar-btn">☰</button>
 
-    <!-- Description -->
-    <p class="course-description">
-      Ce cours de programmation est conçu pour initier les élèves de niveau collège aux bases de la programmation informatique. 
-      À travers des exemples pratiques et des exercices interactifs, les élèves apprendront à écrire leurs premiers programmes, 
-      à comprendre les algorithmes, et à résoudre des problèmes de manière logique.
-    </p>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h3>Espace des Cours</h3>
+    <img src="WhatsApp_Image_2025-02-07_at_20.13.47-removebg-preview.png" class='rounded-5 prof'  alt="">
 
-    <!-- Images illustratives -->
-    <div class="illustrative-images">
-      <img src="images/programming-example1.jpg" alt="Exemple de code">
-      <img src="images/programming-example2.jpg" alt="Exemple d'algorithme">
-      <img src="images/programming-example3.jpg" alt="Exercice interactif">
-    </div>
-
-    <!-- Contenu associé -->
-    <div class="content-section">
-      <h3>Contenu du cours :</h3>
-      <ul>
-        <li>Introduction à la programmation</li>
-        <li>Les bases des algorithmes</li>
-        <li>Écriture de programmes simples</li>
-        <li>Résolution de problèmes pratiques</li>
-      </ul>
-    </div>
-
-    <!-- Fichiers supports -->
-    <div class="content-section">
-      <h3>Fichiers supports :</h3>
-      <a href="supports/programming-basics.pdf" class="file-link" download>Télécharger le guide PDF</a>
-      <a href="supports/programming-exercises.zip" class="file-link" download>Télécharger les exercices</a>
-    </div>
-
-    <!-- Bouton retour -->
-    <a href="cours.html" class="btn btn-secondary back-button">Retour à la liste des cours</a>
+    <ul>
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="cours.html">Cours</a></li>
+      <li class="nav-item"><a class="nav-link" href="dash.html">Tableau de bord</a></li>
+      <li class="nav-item"><a class="nav-link" href="login.html">Déconnexion</a></li>
+    </ul>
   </div>
+  <div class="content" id="content">
+  <!-- Contenu principal -->
+  <div class="content">
+    <!-- Section 1 : Image à gauche, texte à droite -->
+    <div class="section">
+      <img src="yeko.jpeg" alt="Exemple de code">
+      <div class="text">
+        <h3>Introduction à la Programmation</h3>
+        <p>
+          La programmation est une compétence essentielle dans le monde moderne. Ce cours commence par une introduction aux concepts fondamentaux, 
+          comme les variables, les boucles, et les conditions. Ensuite, les élèves apprendront à structurer leurs idées sous forme d'algorithmes 
+          avant de les traduire en code.
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 2 : Texte à gauche, image à droite -->
+    <div class="section">
+      <div class="text">
+        <h3>Exercices Pratiques</h3>
+        <p>
+          Les exercices pratiques permettent de consolider les connaissances acquises. Les élèves travailleront sur des projets simples, 
+          comme la création de calculatrices ou de jeux interactifs, pour appliquer les concepts appris dans des situations réelles.
+        </p>
+      </div>
+      <img src="WhatsApp_Image_2025-02-07_at_20.13.47-removebg-preview.png" alt="Exemple d'algorithme">
+    </div>
+  </div>
+
+  </div>
+
+  <script>
+    // Gestion de l'ouverture/fermeture de la sidebar
+    const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    toggleSidebarBtn.addEventListener('click', () => {
+      if (sidebar.style.right === '0px') {
+        sidebar.style.right = '-250px';
+        content.classList.remove('sidebar-active');
+      } else {
+        sidebar.style.right = '0px';
+        content.classList.add('sidebar-active');
+      }
+    });
+  </script>
+    <script src="bootstrap.min.js"></script>
 </body>
 </html>
