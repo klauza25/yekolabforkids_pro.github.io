@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace des Cours - CoursForKids</title>
+
+  <!-- Inclure W3.CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    .w3-sidebar {
+      width: 250px;
+      background-color: #007bff;
+      color: white;
+      height: 100%;
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding-top: 20px;
+    }
+
+    .w3-sidebar a {
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .w3-sidebar a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Bouton pour ouvrir la sidebar */
+    .toggle-sidebar-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Animation des cartes */
+    .course-card {
+      transition: transform 0.3s;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Style général des cartes */
+    .course-card {
+      border-radius: 15px;
+      overflow: hidden;
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Effet de survol */
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Images */
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    img {
+      height: 200px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bouton pour ouvrir la sidebar -->
+  <button class="w3-button w3-blue toggle-sidebar-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Sidebar -->
+  <div class="w3-sidebar w3-animate-right w3-card" id="sidebar">
+    <h3 class="w3-center">Espace des Cours</h3>
+    <ul>
+      <li><a href="index.html" class="w3-button w3-block">Accueil</a></li>
+      <li><a href="cours.html" class="w3-button w3-block">Cours</a></li>
+      <li><a href="dash.html" class="w3-button w3-block">Tableau de bord</a></li>
+      <li><a href="login.html" class="w3-button w3-red w3-block">Déconnexion</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="w3-container w3-margin-top">
+    <h1>Choisissez un cours</h1>
+    <p>Explorez les différentes séries de cours disponibles pour apprendre la robotique et la programmation.</p>
+
+    <div class="w3-row-padding">
+      <!-- Puzzle Logique -->
+      <div class="w3-third">
+        <div class="w3-card w3-hover-shadow course-card">
+          <img src="yeko.jpeg" class="card-img-top" alt="Puzzle Logique">
+          <div class="w3-container">
+            <h5 class="w3-text-blue">Puzzle Logique</h5>
+            <p>Apprenez à créer des formes avec des LEGO et relevez des défis d'équilibre.</p>
+            <a href="#" class="w3-button w3-blue w3-round">Commencer</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Robotique -->
+      <div class="w3-third">
+        <div class="w3-card w3-hover-shadow course-card">
+          <img src="WhatsApp_Image_2025-02-07_at_20.13.47-removebg-preview.png" class="card-img-top" alt="Robotique">
+          <div class="w3-container">
+            <h5 class="w3-text-green">Robotique</h5>
+            <p>Assemblez des robots fonctionnels avec des capteurs et des moteurs.</p>
+            <a href="#" class="w3-button w3-green w3-round">Commencer</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programmation -->
+      <div class="w3-third">
+        <div class="w3-card w3-hover-shadow course-card">
+          <img src="Adobe Express - file.png" class="card-img-top" alt="Programmation">
+          <div class="w3-container">
+            <h5 class="w3-text-orange">Programmation</h5>
+            <p>Programmez vos robots avec Scratch et la carte Studuino.</p>
+            <a href="#" class="w3-button w3-orange w3-round">Commencer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <footer class="w3-dark-grey w3-center w3-padding-16 w3-margin-top">
+    <p>&copy; 2025 CoursForKids. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script pour gérer la sidebar -->
+  <script>
+    function toggleSidebar() {
+      var sidebar = document.getElementById("sidebar");
+      if (sidebar.style.display === "block") {
+        sidebar.style.display = "none";
+      } else {
+        sidebar.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
